@@ -1,0 +1,352 @@
+/* Mobile-first стили */
+.app-container {
+  /* position: relative; */
+  min-height: 100vh;
+  background: url('../public/photos/GoldBackGroundOpacity.png') no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+
+  /* Адаптивный размер фона */
+  background-size: 525px;
+
+  font-family: 'Pacifico', sans-serif;
+  color: #1f2937;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    /* Для планшетов увеличиваем размер фона */
+    background-size: 600px;
+    font-size: 1.1rem;
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    /* Для десктопов используем оригинальный размер */
+    background-size: 700px;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.hero-content {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.hero-title {
+  font-size: 2rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.heart-icon {
+  margin: 0 auto;
+  color: #706b6c;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Общие стили для карточек */
+.guest-card {
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Invite Section */
+.invite-section {
+  padding: 2rem 0;
+}
+
+.invite-text {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Timing Section */
+
+.timing-section {
+  padding: 1rem 0;
+  /* max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+  gap: 2rem; */
+}
+
+.timing-img {
+  margin: 0 auto;
+}
+
+.timing-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  list-style: none;
+  border-top: black solid 1px;
+}
+
+/* Guest Section */
+.guest-section {
+  padding: 1rem 0;
+}
+
+.guest-container {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.guest-icon {
+  margin: 0 auto 1rem auto;
+  color: #706b6c;
+  display: block;
+}
+
+.guest-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.guest-text {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.dresscode-blocks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin: 1rem 0;
+}
+
+.dresscode-block {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.dresscode-blocks > div {
+  justify-self: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.dresscode-block-1 {
+  background-image: url('../public/photos/DC1.JPG');
+  background-size: 60px;
+}
+.dresscode-block-2 {
+  background-image: url('../public/photos/DC2.JPG');
+  background-size: 60px;
+}
+.dresscode-block-3 {
+  background-image: url('../public/photos/DC3.JPG');
+  background-size: 60px;
+}
+.dresscode-block-4 {
+  border: 1px solid black;
+  background-image: url('../public/photos/DC4.JPG');
+  background-size: 60px;
+}
+.dresscode-block-5 {
+  background-image: url('../public/photos/DC5.JPG');
+  background-size: 60px;
+}
+.dresscode-block-6 {
+  background-image: url('../public/photos/DC6.JPG');
+  background-size: 45px;
+}
+.dresscode-block-7 {
+  background-image: url('../public/photos/DC7.JPG');
+  background-size: 60px;
+}
+.dresscode-block-8 {
+  background-image: url('../public/photos/DC8.JPG');
+  background-size: 60px;
+}
+
+/* Venue Section */
+.venue-section {
+  padding: 1rem 0;
+}
+
+.venue-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.venue-item {
+  text-align: center;
+}
+
+.venue-icon {
+  margin: 0 auto 0.5rem auto;
+  color: #706b6c;
+}
+
+.venue-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.venue-text {
+  line-height: 1.5;
+}
+
+.map-container {
+  height: 300px;
+  margin-top: 1.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* RSVP Section */
+.rsvp-section {
+  padding: 2rem 0;
+}
+
+.rsvp-form {
+  margin-top: 1rem;
+}
+
+.rsvp-text {
+  line-height: 1.5;
+  text-align: center;
+}
+
+.rsvp-text a {
+  color: #706b6c;
+  text-decoration: underline;
+}
+
+/* Footer Section */
+.footer-section {
+  padding: 2rem 0;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4b5563;
+  text-decoration: none;
+}
+
+.contact-icon {
+  color: #706b6c;
+}
+
+/* Медиа-запросы для планшетов и десктопов */
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .guest-container {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .guest-card {
+    flex: 1;
+  }
+
+  .venue-container {
+    flex-direction: row;
+  }
+
+  .venue-item {
+    flex: 1;
+  }
+
+  .map-container {
+    height: 400px;
+  }
+
+  .contact-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    background-size: 700px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,31 @@
+.countdown-timer {
+  text-align: center;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 660px) {
+  .countdown-timer {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .countdown-timer {
+    font-size: 1.5rem;
+  }
+}
+
+.countdown-timer > div {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
