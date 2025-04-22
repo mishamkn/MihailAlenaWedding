@@ -11,7 +11,7 @@
 
 /* Фиксированный фон через псевдоэлемент */
 .app-container::before {
-  content: "";
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
@@ -125,6 +125,7 @@
 }
 
 .timing-item {
+  font-size: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -161,6 +162,11 @@
   line-height: 1.5;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+.guest-text a {
+  color: #706b6c;
+  text-decoration: underline;
 }
 
 .dresscode-blocks {

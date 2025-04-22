@@ -6,19 +6,19 @@ import CountdownTimer from './components/CountdownTimer'
 const weddingDate = '1 августа 2025'
 const timingEvents = [
   {
-    name: 'Сбор',
+    name: 'Сбор гостей ',
+    time: '14:00',
+  },
+  {
+    name: 'Торжественная церемония',
     time: '15:00',
   },
   {
-    name: 'Фотосессия',
+    name: 'Праздничный ужин',
     time: '16:00',
   },
   {
-    name: 'Свадьба',
-    time: '17:00',
-  },
-  {
-    name: 'Салют',
+    name: 'Завершение вечера',
     time: '23:00',
   },
 ]
@@ -33,9 +33,7 @@ function App() {
     }
 
     // Получаем высоту приветственного изображения после загрузки
-  
     const introImg = document.querySelector('.intro-image') as HTMLElement
-    // const introImg = document.querySelector('.app-container') as HTMLElement
     if (introImg) {
       setIntroHeight(introImg.offsetHeight)
     }
@@ -43,11 +41,6 @@ function App() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-  console.log('scrollY', scrollY)
-  console.log('introHeight', introHeight)
-
-  // Вычисляем прозрачность основного контента
-  // const contentOpacity = Math.min(1, scrollY);
 
   return (
     <>
@@ -56,16 +49,11 @@ function App() {
           className='intro-image'
           src='./photos/SaveTheDate.png'
           style={{
-            // position: 'absolute',
-            // top: '50%',
-            // left: '50%',
-            // transform: 'translate(-50%, -50%)',
             margin: 'auto',
-            // height: '100vh',
             opacity: 1 - scrollY / introHeight,
           }}></img>
       </div>
-      <div className='app-container' style={{opacity: 1.2 * scrollY / introHeight}}>
+      <div className='app-container' style={{opacity: (1.2 * scrollY) / introHeight}}>
         {/* Hero Section */}
         {/* <section className='hero-section'>
           <div className='hero-content'>
@@ -80,7 +68,12 @@ function App() {
           <div className='guest-card'>
             <h2 className='section-title'>Дорогие родные и близкие</h2>
             <p className='invite-text'>
-              Мы бы хотели пригласить Вас на нашу долгожданную свадьбу, которая состоится через:
+              Один день в этом году будет особенно счастливым и ярким и мы бы хотели, чтобы в этот
+              день все самые любимые были рядом с нами!
+            </p>
+            <p className='invite-text'>
+              С большим удовольствием приглашаем Вас на нашу долгожданную свадьбу, которая состоится
+              через:
             </p>
             <CountdownTimer />
             <p className='invite-text'>
@@ -88,21 +81,6 @@ function App() {
             </p>
           </div>
         </section>
-
-        {/* Timing  */}
-        {/* <section className='timing-section'>
-          <div className='guest-card'>
-            <h2 className='section-title'>Тайминг</h2>
-            <ul className='timing-list'>
-              {timingEvents.map(({name, time}) => (
-                <li className='timing-item' key={name}>
-                  <div className='timing-time'>{time}</div>
-                  <div className='timing-name'>{name}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section> */}
 
         <section className='timing-section'>
           <div className='guest-card'>
@@ -123,8 +101,8 @@ function App() {
               <Shirt className='guest-icon' size={32} />
               <h3 className='guest-title'>Dress Code</h3>
               <p className='guest-text'>
-                Чтобы праздник получился гармоничным и красивым, просим вас придерживаться нашего
-                дресс-кода.
+                Для нас важно, чтобы вы чувствовали себя комфортно и ослепительно, но просим Вас
+                придерживаться цветовой гаммы нашего дресс кода.
               </p>
               <div className='dresscode-blocks'>
                 <div className='dresscode-block-1' />
@@ -140,6 +118,12 @@ function App() {
                 Мы хотим, чтобы наши фотографии получились стильными и атмосферными, и ваш наряд
                 станет частью этой красивой истории!
               </p>
+              <p className='guest-text'>
+                Вдохновиться и вдохновить можно{' '}
+                <a href='https://pin.it/2KZ92FPzw' target='_blank' rel='noreferrer'>
+                  тут
+                </a>{' '}
+              </p>
             </div>
             <div className='guest-card'>
               <Gift className='guest-icon' size={32} />
@@ -148,6 +132,21 @@ function App() {
                 Ваше присутствие - лучший подарок для нас. Если хотите порадовать нас, будем
                 благодарны за вклад в наше свадебное путешествие.
               </p>
+              <p className='guest-text'>
+                Цветы - это прекрасно, но в качестве альтернативы Вы можете подарить бутылочку
+                алкогольного напитка с пожеланиями.
+              </p>
+              <p className='guest-text'>
+                Если Вы планируете творческий подарок для нас, то можете связаться с нашим ведущим и
+                уточнить у него, можно ли так сделать.
+              </p>
+              <div className='contact-container'>
+                <a className='contact-item' href='tel:+79873648393'>
+                  Дмитрий
+                  <Phone className='contact-icon' size={20} />
+                  +7 (987) 364-83-93
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -194,7 +193,7 @@ function App() {
             <form className='rsvp-form'>
               <p className='rsvp-text'>
                 Заполните небольшую форму{' '}
-                <a href='https://forms.gle/7Np7b1qyZnV9zG6o7' target='_blank' rel='noreferrer'>
+                <a href='https://forms.gle/et8ANWs2HCRnVvNn6' target='_blank' rel='noreferrer'>
                   по ссылке
                 </a>{' '}
                 для подтверждения своего присутствия. Укажите ваше имя и количество гостей, если вы
@@ -221,8 +220,17 @@ function App() {
                 <MessageCircle className='contact-icon' size={20} />
                 @misha_mkn
               </a>
+              <a
+                className='contact-item'
+                href='https://t.me/alena011101'
+                target='_blank'
+                rel='noreferrer'>
+                <MessageCircle className='contact-icon' size={20} />
+                @alena011101
+              </a>
             </div>
           </div>
+          P.S. Готовьтесь к вечеринке!
         </footer>
       </div>
     </>
