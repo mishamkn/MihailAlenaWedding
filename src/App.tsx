@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useLayoutEffect} from 'react'
 import {MapPin, Clock, MessageCircle, Phone, Gift, Shirt} from 'lucide-react'
 import './styles.css'
 import CountdownTimer from './components/CountdownTimer'
@@ -27,7 +27,7 @@ function App() {
   const [scrollY, setScrollY] = useState(0)
   const [introHeight, setIntroHeight] = useState(0)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY)
     }
@@ -133,12 +133,7 @@ function App() {
                 благодарны за вклад в наше свадебное путешествие.
               </p>
               <p className='guest-text'>
-                Цветы - это прекрасно, но в качестве альтернативы Вы можете подарить бутылочку
-                алкогольного напитка с пожеланиями.
-              </p>
-              <p className='guest-text'>
-                Если Вы планируете творческий подарок для нас, то можете связаться с нашим ведущим и
-                уточнить у него, можно ли так сделать.
+                Если Вы планируете творческий подарок для нас, то можете связаться с нашим ведущим.
               </p>
               <div className='contact-container'>
                 <a className='contact-item' href='tel:+79873648393'>
@@ -171,7 +166,7 @@ function App() {
                 <p className='venue-text'>
                   {weddingDate}
                   <br />
-                  15:00
+                  {timingEvents[0].time}
                 </p>
               </div>
             </div>
