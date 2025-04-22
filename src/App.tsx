@@ -1,4 +1,4 @@
-import {useState, useLayoutEffect} from 'react'
+import {useState, useEffect} from 'react'
 import {MapPin, Clock, MessageCircle, Phone, Gift, Shirt} from 'lucide-react'
 import './styles.css'
 import CountdownTimer from './components/CountdownTimer'
@@ -27,15 +27,20 @@ function App() {
   const [scrollY, setScrollY] = useState(0)
   const [introHeight, setIntroHeight] = useState(0)
 
-  useLayoutEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
+  useEffect(() => {
+    const introImg = document.querySelector('.intro-image') as HTMLImageElement
+    if (introImg) {
+      if (introImg.complete) {
+        setIntroHeight(introImg.offsetHeight)
+      } else {
+        introImg.onload = () => {
+          setIntroHeight(introImg.offsetHeight)
+        }
+      }
     }
 
-    // Получаем высоту приветственного изображения после загрузки
-    const introImg = document.querySelector('.intro-image') as HTMLElement
-    if (introImg) {
-      setIntroHeight(introImg.offsetHeight)
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -53,7 +58,9 @@ function App() {
             opacity: 1 - scrollY / introHeight,
           }}></img>
       </div>
-      <div className='app-container' style={{opacity: (1.2 * scrollY) / introHeight}}>
+      <div
+        className='app-container'
+        style={{opacity: introHeight === 0 ? 0 : (1.2 * scrollY) / introHeight}}>
         {/* Hero Section */}
         {/* <section className='hero-section'>
           <div className='hero-content'>
@@ -66,7 +73,7 @@ function App() {
         {/* Our Story */}
         <section className='invite-section'>
           <div className='guest-card'>
-            <h2 className='section-title'>Дорогие родные и близкие</h2>
+            <h2 className='section-title'>Дорогие родные и близкие!</h2>
             <p className='invite-text'>
               Один день в этом году будет особенно счастливым и ярким и мы бы хотели, чтобы в этот
               день все самые любимые были рядом с нами!
@@ -99,7 +106,7 @@ function App() {
           <div className='guest-container'>
             <div className='guest-card'>
               <Shirt className='guest-icon' size={32} />
-              <h3 className='guest-title'>Dress Code</h3>
+              <h3 className='guest-title'>Дресс код</h3>
               <p className='guest-text'>
                 Для нас важно, чтобы вы чувствовали себя комфортно и ослепительно, но просим Вас
                 придерживаться цветовой гаммы нашего дресс кода.
@@ -133,7 +140,7 @@ function App() {
                 благодарны за вклад в наше свадебное путешествие.
               </p>
               <p className='guest-text'>
-                Если Вы планируете творческий подарок для нас, то можете связаться с нашим ведущим.
+                Если Вы планируете творческий подарок, то можете связаться с нашим ведущим.
               </p>
               <div className='contact-container'>
                 <a className='contact-item' href='tel:+79873648393'>
